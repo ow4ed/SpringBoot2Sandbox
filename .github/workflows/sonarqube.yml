@@ -1,15 +1,17 @@
-name: Build
+name: SonarQube analysis
 
 on:
   push:
     branches:
       - master
 
-
+permissions:
+  pull-requests: read # allows SonarQube to decorate PRs with analysis results
+  
 jobs:
   build:
-    name: Build
-    runs-on: ubuntu-latest
+    name: SonarQube analysis
+    runs-on: self-hosted
     permissions: read-all
     steps:
       - uses: actions/checkout@v2
